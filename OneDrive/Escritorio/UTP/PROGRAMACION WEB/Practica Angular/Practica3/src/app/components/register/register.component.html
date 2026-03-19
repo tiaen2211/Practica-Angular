@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card">
+    <h1>Crear Cuenta</h1>
+
+    <div class="campo">
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="nombre" placeholder="Tu nombre" />
+    </div>
+
+    <div class="campo">
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="email" placeholder="correo@mail.com" />
+    </div>
+
+    <div class="campo">
+      <label>Contraseña:</label>
+      <input type="password" [(ngModel)]="password" placeholder="Mínimo 4 caracteres" />
+    </div>
+
+    <div class="campo">
+      <label>Confirmar Contraseña:</label>
+      <input type="password" [(ngModel)]="confirmPassword" placeholder="Repetí tu contraseña" />
+    </div>
+
+    <button
+      (click)="register()"
+      [disabled]="nombre === '' || email === '' || password === '' || confirmPassword === ''">
+      Registrarse
+    </button>
+
+    @if (mensaje !== '') {
+      <p [class]="exito ? 'mensaje exito' : 'mensaje error'">{{ mensaje }}</p>
+    }
+
+    @if (exito) {
+      <button class="btn-login" (click)="goToLogin()">Ir al Login</button>
+    }
+  </div>
+</div>
